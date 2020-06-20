@@ -1,0 +1,60 @@
+.form {
+    background-color: white;
+    padding: 20px 15px;
+  }
+  .form__fieldset {
+    border-radius: 5px;
+    border: 2px solid #00a2ff;
+  }
+  .form__legend {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 2px solid #00a2ff;
+    font-weight: 700;
+    text-align: right;
+    text-transform: uppercase;
+  }
+  .form__field {
+    margin: 20px 0;
+  }
+  .form__label {
+    margin-right: 5px;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .form__input {
+    margin-left: 10px;
+    padding: 15px 10px;
+    font-size: 20px;
+    border: 1px solid #00a2ff;
+    border-radius: 5px;
+  }
+  .form__inputItem {
+    font-size: 25px;
+  }
+  .form__input--amount {
+    max-width: 150px;
+  }
+  .form__result {
+    padding: 10px 20px;
+    font-size: 22px;
+    background-color: #00a2ff;
+    color: hsl(208, 100%, 97%);
+    margin-right: 5px;
+    border-radius: 5px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .form__result--value {
+    font-weight: 700;
+    margin-left: 30px;
+    font-size: 30px;
+  }
+  .form__currencyInFlag,
+  .form__currencyOutFlag {
+    text-align: center;
+  }
+  
