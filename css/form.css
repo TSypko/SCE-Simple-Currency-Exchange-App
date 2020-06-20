@@ -32,7 +32,7 @@
     border: 1px solid #00a2ff;
     border-radius: 5px;
   }
-  .form__inputItem {
+  .form__item {
     font-size: 25px;
   }
   .form__input--amount {
