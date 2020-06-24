@@ -94,9 +94,9 @@
 
   const setResult = () => {
     currencyFlagSelect(inputCurrencyTypeField, outputCurrencyTypeField);
-    let inputCurrencyType = exchangeValueIn(inputCurrencyTypeField);
-    let outputCurrencyType = exchangeValueOut(outputCurrencyTypeField);
-    let resultCurrency = setCurrency(outputCurrencyTypeField);
+    const inputCurrencyType = exchangeValueIn(inputCurrencyTypeField);
+    const outputCurrencyType = exchangeValueOut(outputCurrencyTypeField);
+    const resultCurrency = setCurrency(outputCurrencyTypeField);
     const resultField = document.querySelector(".js-form__result");
     result = amountField.value * inputCurrencyType * outputCurrencyType;
     resultField.innerText = `${result.toFixed(2)} ${resultCurrency} `;
