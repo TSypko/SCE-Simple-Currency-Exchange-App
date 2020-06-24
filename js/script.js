@@ -7,113 +7,101 @@
   );
   const amountField = document.querySelector(".js-form__amount");
 
-  const flagChange = () => {
-    const euroFlagLink = "images/Flag_of_euro.svg";
-    const plnFlagLink = "images/Flag_of_Poland_2.svg";
-    const usdFlagLink = "images/US_44_Star_Flag.svg";
-    const gbFlagLink = "images/Flag_of_the_United_Kingdom.svg";
-    const swissFlagLink = "images/Flag_of_Switzerland.svg";
-
+  const currencyFlagLinkSelect = (field) => {
+    const plnFlagLink = `images/Flag_of_Poland_2.svg"  alt="Flag of Poland"`;
+    const euroFlagLink = `images/Flag_of_euro.svg"  alt="Flag of Euro"`;
+    const usdFlagLink = `images/US_44_Star_Flag.svg"  alt="Flag of US"`;
+    const gbpFlagLink = `images/Flag_of_the_United_Kingdom.svg"  alt="Flag of GB"`;
+    const swissFlagLink = `images/Flag_of_Switzerland.svg"  alt="Flag of Swiss"`;
     const flagPrefix = `<img src="`;
-    const flagPostfix = `" class="form__flag" alt="Flag of Poland" width="80px" height="50px"></img>`;
+    const flagPostfix = ` class="form__flag" width="80px" height="50px">`;
 
-    const flagCurrencyIn = document.querySelector(".js-form__currencyInFlag");
-    const flagCurrencyOut = document.querySelector(".js-form__currencyOutFlag");
-
-    switch (inputCurrencyTypeField.value) {
+    switch (field.value) {
       case "pln":
-        flagCurrencyIn.innerHTML = `${flagPrefix}${plnFlagLink}${flagPostfix}`;
-        break;
+        return `${flagPrefix}${plnFlagLink}${flagPostfix}`;
       case "eur":
-        flagCurrencyIn.innerHTML = `${flagPrefix}${euroFlagLink}${flagPostfix}`;
-        break;
+        return `${flagPrefix}${euroFlagLink}${flagPostfix}`;
       case "usd":
-        flagCurrencyIn.innerHTML = `${flagPrefix}${usdFlagLink}${flagPostfix}`;
-        break;
+        return `${flagPrefix}${usdFlagLink}${flagPostfix}`;
       case "gbp":
-        flagCurrencyIn.innerHTML = `${flagPrefix}${gbFlagLink}${flagPostfix}`;
-        break;
+        return `${flagPrefix}${gbpFlagLink}${flagPostfix}`;
       case "chf":
-        flagCurrencyIn.innerHTML = `${flagPrefix}${swissFlagLink}${flagPostfix}`;
-        break;
-    }
-    switch (outputCurrencyTypeField.value) {
-      case "pln":
-        flagCurrencyOut.innerHTML = `${flagPrefix}${plnFlagLink}${flagPostfix}`;
-        break;
-      case "eur":
-        flagCurrencyOut.innerHTML = `${flagPrefix}${euroFlagLink}${flagPostfix}`;
-        break;
-      case "usd":
-        flagCurrencyOut.innerHTML = `${flagPrefix}${usdFlagLink}${flagPostfix}`;
-        break;
-      case "gbp":
-        flagCurrencyOut.innerHTML = `${flagPrefix}${gbFlagLink}${flagPostfix}`;
-        break;
-      case "chf":
-        flagCurrencyOut.innerHTML = `${flagPrefix}${swissFlagLink}${flagPostfix}`;
-        break;
+        return `${flagPrefix}${swissFlagLink}${flagPostfix}`;
     }
   };
 
-  const exchange = () => {
-    const pln = 1;
-    const eur = 4.46;
-    const usd = 3.98;
-    const gbp = 4.98;
-    const chf = 4.18;
-
-    const resultField = document.querySelector(".js-form__result");
-
-    switch (inputCurrencyTypeField.value) {
-      case "pln":
-        inputCurrencyType = pln;
-        break;
-      case "eur":
-        inputCurrencyType = eur;
-        break;
-      case "usd":
-        inputCurrencyType = usd;
-        break;
-      case "gbp":
-        inputCurrencyType = gbp;
-        break;
-      case "chf":
-        inputCurrencyType = chf;
-        break;
-    }
-    switch (outputCurrencyTypeField.value) {
-      case "pln":
-        outputCurrencyType = pln;
-        resultCurrency = "PLN";
-        break;
-      case "eur":
-        outputCurrencyType = 1 / eur;
-        resultCurrency = "EUR";
-        break;
-      case "usd":
-        outputCurrencyType = 1 / usd;
-        resultCurrency = "USD";
-        break;
-      case "gbp":
-        outputCurrencyType = 1 / gbp;
-        resultCurrency = "GBP";
-        break;
-      case "chf":
-        outputCurrencyType = 1 / chf;
-        resultCurrency = "CHF";
-        break;
-    }
-    flagChange();
-    result = (
-      amountField.value *
-      inputCurrencyType *
-      outputCurrencyType
-    ).toFixed(2);
-    resultField.innerText = `${result} ${resultCurrency} `;
+  const currencyFlagSelect = (fieldIn, fieldOut) => {
+    const currencyFlagFieldIn = document.querySelector(
+      ".js-form__currencyInFlag"
+    );
+    const currencyFlagFieldOut = document.querySelector(
+      ".js-form__currencyOutFlag"
+    );
+    currencyFlagFieldIn.innerHTML = currencyFlagLinkSelect(fieldIn);
+    currencyFlagFieldOut.innerHTML = currencyFlagLinkSelect(fieldOut);
   };
 
-  inputCurrencyTypeField.addEventListener("input", exchange);
-  outputCurrencyTypeField.addEventListener("input", exchange);
-  amountField.addEventListener("input", exchange);
+  let inputCurrencyType;
+  let outputCurrencyType;
+  let resultCurrency;
+  const pln = 1;
+  const eur = 4.4532;
+  const usd = 3.9395;
+  const gbp = 4.9256;
+  const chf = 4.1702;
+  const resultField = document.querySelector(".js-form__result");
+
+  let exchangeValueIn = (valueIn) => {
+    switch (valueIn.value) {
+      case "pln":
+        return (inputCurrencyType = pln);
+      case "eur":
+        return (inputCurrencyType = eur);
+      case "usd":
+        return (inputCurrencyType = usd);
+      case "gbp":
+        return (inputCurrencyType = gbp);
+      case "chf":
+        return (inputCurrencyType = chf);
+    }
+  };
+  let exchangeValueOut = (valueOut) => {
+    switch (valueOut.value) {
+      case "pln":
+        return (outputCurrencyType = pln);
+      case "eur":
+        return (outputCurrencyType = 1 / eur);
+      case "usd":
+        return (outputCurrencyType = 1 / usd);
+      case "gbp":
+        return (outputCurrencyType = 1 / gbp);
+      case "chf":
+        return (outputCurrencyType = 1 / chf);
+    }
+  };
+  let setCurrency = (currency) => {
+    switch (currency.value) {
+      case "pln":
+        return (resultCurrency = "PLN");
+      case "eur":
+        return (resultCurrency = "EUR");
+      case "usd":
+        return (resultCurrency = "USD");
+      case "gbp":
+        return (resultCurrency = "GBP");
+      case "chf":
+        return (resultCurrency = "CHF");
+    }
+  };
+  let setResult = () => {
+    exchangeValueIn(inputCurrencyTypeField);
+    exchangeValueOut(outputCurrencyTypeField);
+    setCurrency(outputCurrencyTypeField);
+    currencyFlagSelect(inputCurrencyTypeField, outputCurrencyTypeField);
+    result = amountField.value * inputCurrencyType * outputCurrencyType;
+    resultField.innerText = `${result.toFixed(2)} ${resultCurrency} `;
+  };
+  inputCurrencyTypeField.addEventListener("input", setResult);
+  outputCurrencyTypeField.addEventListener("input", setResult);
+  amountField.addEventListener("input", setResult);
 }
