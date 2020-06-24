@@ -41,15 +41,11 @@
     currencyFlagFieldOut.innerHTML = currencyFlagLinkSelect(fieldOut);
   };
 
-  let inputCurrencyType;
-  let outputCurrencyType;
-  let resultCurrency;
   const pln = 1;
   const eur = 4.4532;
   const usd = 3.9395;
   const gbp = 4.9256;
   const chf = 4.1702;
-  const resultField = document.querySelector(".js-form__result");
 
   let exchangeValueIn = (valueIn) => {
     switch (valueIn.value) {
@@ -94,6 +90,7 @@
     }
   };
   let setResult = () => {
+    const resultField = document.querySelector(".js-form__result");
     exchangeValueIn(inputCurrencyTypeField);
     exchangeValueOut(outputCurrencyTypeField);
     setCurrency(outputCurrencyTypeField);
