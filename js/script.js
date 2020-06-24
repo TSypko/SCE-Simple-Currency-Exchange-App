@@ -91,14 +91,22 @@
         return "CHF";
     }
   };
-
+  const calculateResult = (amount, rateIn, rateOut) => {
+    return amount * rateIn * rateOut;
+  };
   const setResult = () => {
-    currencyFlagSelect(inputCurrencyTypeField, outputCurrencyTypeField);
     const inputCurrencyType = exchangeValueIn(inputCurrencyTypeField);
     const outputCurrencyType = exchangeValueOut(outputCurrencyTypeField);
-    const resultCurrency = setCurrency(outputCurrencyTypeField);
+    currencyFlagSelect(inputCurrencyTypeField, outputCurrencyTypeField);
+
+    const result = calculateResult(
+      amountField.value,
+      inputCurrencyType,
+      outputCurrencyType
+    );
     const resultField = document.querySelector(".js-form__result");
-    result = amountField.value * inputCurrencyType * outputCurrencyType;
+    const resultCurrency = setCurrency(outputCurrencyTypeField);
+
     resultField.innerText = `${result.toFixed(2)} ${resultCurrency} `;
   };
   inputCurrencyTypeField.addEventListener("input", setResult);
