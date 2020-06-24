@@ -47,7 +47,7 @@
   const gbp = 4.9256;
   const chf = 4.1702;
 
-  let exchangeValueIn = (valueIn) => {
+  const exchangeValueIn = (valueIn) => {
     switch (valueIn.value) {
       case "pln":
         return (inputCurrencyType = pln);
@@ -61,7 +61,7 @@
         return (inputCurrencyType = chf);
     }
   };
-  let exchangeValueOut = (valueOut) => {
+  const exchangeValueOut = (valueOut) => {
     switch (valueOut.value) {
       case "pln":
         return (outputCurrencyType = pln);
@@ -75,7 +75,7 @@
         return (outputCurrencyType = 1 / chf);
     }
   };
-  let setCurrency = (currency) => {
+  const setCurrency = (currency) => {
     switch (currency.value) {
       case "pln":
         return (resultCurrency = "PLN");
@@ -89,7 +89,7 @@
         return (resultCurrency = "CHF");
     }
   };
-  let setResult = () => {
+  const setResult = () => {
     const resultField = document.querySelector(".js-form__result");
     exchangeValueIn(inputCurrencyTypeField);
     exchangeValueOut(outputCurrencyTypeField);
