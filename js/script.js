@@ -47,54 +47,57 @@
   const gbp = 4.9256;
   const chf = 4.1702;
 
-  const exchangeValueIn = (valueIn) => {
-    switch (valueIn.value) {
+  const exchangeValueIn = (rateIn) => {
+    switch (rateIn.value) {
       case "pln":
-        return (inputCurrencyType = pln);
+        return pln;
       case "eur":
-        return (inputCurrencyType = eur);
+        return eur;
       case "usd":
-        return (inputCurrencyType = usd);
+        return usd;
       case "gbp":
-        return (inputCurrencyType = gbp);
+        return gbp;
       case "chf":
-        return (inputCurrencyType = chf);
+        return chf;
     }
   };
-  const exchangeValueOut = (valueOut) => {
-    switch (valueOut.value) {
+
+  const exchangeValueOut = (rateOut) => {
+    switch (rateOut.value) {
       case "pln":
-        return (outputCurrencyType = pln);
+        return pln;
       case "eur":
-        return (outputCurrencyType = 1 / eur);
+        return 1 / eur;
       case "usd":
-        return (outputCurrencyType = 1 / usd);
+        return 1 / usd;
       case "gbp":
-        return (outputCurrencyType = 1 / gbp);
+        return 1 / gbp;
       case "chf":
-        return (outputCurrencyType = 1 / chf);
+        return 1 / chf;
     }
   };
-  const setCurrency = (currency) => {
-    switch (currency.value) {
+
+  const setCurrency = (currencyType) => {
+    switch (currencyType.value) {
       case "pln":
-        return (resultCurrency = "PLN");
+        return "PLN";
       case "eur":
-        return (resultCurrency = "EUR");
+        return "EUR";
       case "usd":
-        return (resultCurrency = "USD");
+        return "USD";
       case "gbp":
-        return (resultCurrency = "GBP");
+        return "GBP";
       case "chf":
-        return (resultCurrency = "CHF");
+        return "CHF";
     }
   };
+
   const setResult = () => {
-    const resultField = document.querySelector(".js-form__result");
-    exchangeValueIn(inputCurrencyTypeField);
-    exchangeValueOut(outputCurrencyTypeField);
-    setCurrency(outputCurrencyTypeField);
     currencyFlagSelect(inputCurrencyTypeField, outputCurrencyTypeField);
+    let inputCurrencyType = exchangeValueIn(inputCurrencyTypeField);
+    let outputCurrencyType = exchangeValueOut(outputCurrencyTypeField);
+    let resultCurrency = setCurrency(outputCurrencyTypeField);
+    const resultField = document.querySelector(".js-form__result");
     result = amountField.value * inputCurrencyType * outputCurrencyType;
     resultField.innerText = `${result.toFixed(2)} ${resultCurrency} `;
   };
