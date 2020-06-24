@@ -28,8 +28,8 @@
                 </legend>
 
                 <div class="form__field">
-                    <label for="inputCurrencyInType" class="form__label">&nbsp;&nbsp;&nbsp;&nbsp;From:</label>
 
+                    <label for="inputCurrencyInType" class="form__label">&nbsp;&nbsp;&nbsp;&nbsp;From:</label>
                     <select name="inputCurrencyInType" id="inputCurrencyInType"
                         class="form__input form__input--select js-inputCurrencyType">
                         <option class="form__item" value="pln">Polish Zloty</option>
@@ -38,15 +38,14 @@
                         <option class="form__item" value="gbp">British Pound</option>
                         <option class="form__item" value="chf">Swiss Franc</option>
                     </select>
-
                 </div>
                 <div class="form__currencyInFlag js-form__currencyInFlag"><img src="images/Flag_of_Poland_2.svg"
-                        class="form__flag" alt="Flag of Poland" width="80px" height="50px"></img></div>
+                        class="form__flag" alt="Flag of Poland" width="80px" height="50px"></div>
                 <div class="form__field">
-                    <label for="inputCurrencyOutype"
-                        class="form__label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To:</label>
 
-                    <select name="outputCurrencyType" id="inputCurrencyOutype"
+                    <label for="outputCurrencyType"
+                        class="form__label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To:</label>
+                    <select name="outputCurrencyType" id="outputCurrencyType"
                         class="form__input form__input--select js-outputCurrencyType">
                         <option class="form__item" value="pln">Polish Zloty</option>
                         <option class="form__item" value="eur">Euro</option>
@@ -54,10 +53,11 @@
                         <option class="form__item" value="gbp">British Pound</option>
                         <option class="form__item" value="chf">Swiss Franc</option>
                     </select>
-
                 </div>
                 <div class="form__currencyOutFlag js-form__currencyOutFlag"><img src="images/Flag_of_Poland_2.svg"
                         class="form__flag" alt="Flag of Poland" width="80px" height="50px"></div>
+
+
                 <div class="form__field ">
                     <label for="amount" class="form__label">Amount:</label>
                     <input id="amount" type="number" step="0.01" class="form__input form__input--amount js-form__amount"
@@ -66,6 +66,8 @@
                 </div>
                 <div class="form__field form__field--result">
                     <p class="form__result">Result: <span class="form__result--value js-form__result"></span></p>
+                    <p class="form__note"><strong>IMPORTANT!</strong> exchange rates according to National Bank of
+                        Poland from 2020-06-24</p>
                 </div>
 
             </fieldset>
