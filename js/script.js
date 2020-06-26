@@ -85,9 +85,8 @@
     currencyFlagFieldOut.innerHTML = currencyFlagLinkSelect(fieldOut);
   };
 
-  const calculateResult = (amount, rateIn, rateOut) => {
-    return amount * rateIn * rateOut;
-  };
+  const calculateResult = (amount, rateIn, rateOut) =>
+    amount * rateIn * rateOut;
 
   const setResult = () => {
     const rateIn = currencyFromField.value;
