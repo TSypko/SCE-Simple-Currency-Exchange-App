@@ -18,7 +18,8 @@ Supported currencies:
 #### TECHNOLOGIES USED:
 - HTML
 - CSS
-- JavaScript
+- JavaScript ES6
+- BEM convention
 ### HOW TO USE
 
 1. Choose a currency type you wish to convert from **FROM** field.
@@ -36,5 +37,9 @@ Please feel free to contact with author: [tsypko@gmail.com](tsypko@gmail.com)
 
 ### VERSION HISTORY
 
-v. 0.1 - beta - current version.
+v. 0.1.1 - beta - current version.
+- JavaScript amendment,
+- Styling amendment,
+
+v. 0.1 - beta
 
