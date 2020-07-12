@@ -36,7 +36,7 @@ const currencyFlagLinkSelect = (flagLink) => {
   return `<img src="${flagLink} class="form__flag" width="80px" height="50px">`;
 };
 
-const currencyFlagSelect = (fieldIn, fieldOut) => {
+const renderCurrencyFlag = (fieldIn, fieldOut) => {
   const currencyFlagFieldIn = document.querySelector(
     ".js-form__currencyInFlag"
   );
@@ -60,7 +60,7 @@ const writeResult = () => {
 
   const amount = +amountField.value;
 
-  currencyFlagSelect(currencyFrom.flagLink, currencyTo.flagLink);
+  renderCurrencyFlag(currencyFrom.flagLink, currencyTo.flagLink);
 
   const result = calculateResult(amount, currencyFrom.rate, (1 / currencyTo.rate));
   const resultField = document.querySelector(".js-form__result");
