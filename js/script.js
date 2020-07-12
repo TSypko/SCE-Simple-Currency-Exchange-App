@@ -27,7 +27,6 @@
     },
   ];
 
-
   const currencyFlagLinkSelect = (flagLink) => {
     return `<img src="${flagLink} class="form__flag" width="80px" height="50px">`;
   };
