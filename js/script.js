@@ -43,9 +43,6 @@
     currencyFlagFieldOut.innerHTML = currencyFlagLinkSelect(fieldOut);
   };
 
-  const calculateResult = (amount, rateIn, rateOut) =>
-    amount * rateIn * rateOut;
-
   const currencyFromField = document.querySelector(".js-inputCurrencyType");
   const currencyToField = document.querySelector(".js-outputCurrencyType");
   const amountField = document.querySelector(".js-form__amount");
@@ -60,7 +57,7 @@
 
     renderCurrencyFlag(currencyFrom.flagLink, currencyTo.flagLink);
 
-    const result = calculateResult(+amountField.value, currencyFrom.rate, (1 / currencyTo.rate));
+    const result = (+amountField.value * currencyFrom.rate * (1 / currencyTo.rate));
     const resultField = document.querySelector(".js-form__result");
     resultField.innerText = `${result.toFixed(2)} ${currencyTo.name} `;
 
