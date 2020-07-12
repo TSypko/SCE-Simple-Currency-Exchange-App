@@ -2,7 +2,7 @@
 ![SCE-logo](https://github.com/TSypko/SCE-Simple-Currency-Exchange-App/blob/master/images/share-mini.png?raw=true)
 # SIMPLE CURRENCY EXCHANGE
 ### LIVE LINK: [https://tsypko.github.io/SCE-Simple-Currency-Exchange-App/](https://tsypko.github.io/SCE-Simple-Currency-Exchange-App/)
- v. 0.1 beta
+ v. 0.2 beta
 ### DESCRIPTION
 Simple, lightweight currency conventer created during ,*,Become A Front End Developer"* course provided by *Youcode Academy*.
 It allows you to instantly convert currencies based on the exchange rate of the day*.
@@ -37,7 +37,10 @@ Please feel free to contact with author: [tsypko@gmail.com](tsypko@gmail.com)
 
 ### VERSION HISTORY
 
-v. 0.1.1 - beta - current version.
+v. 0.2 - beta - current version.
+- JavaScript code thoroughly refactored,
+
+v. 0.1.1 - beta
 - JavaScript amendment,
 - Styling amendment,
 
