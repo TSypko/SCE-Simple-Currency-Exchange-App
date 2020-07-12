@@ -48,11 +48,8 @@
 
   const writeResult = () => {
 
-    const fromCurrencyIndex = currencies.findIndex(({ name }) => name === currencyFromField.value);
-    const toCurrencyIndex = currencies.findIndex(({ name }) => name === currencyToField.value);
-
-    const currencyFrom = currencies[fromCurrencyIndex];
-    const currencyTo = currencies[toCurrencyIndex];
+    const currencyFrom = currencies[currencies.findIndex(({ name }) => name === currencyFromField.value)];
+    const currencyTo = currencies[currencies.findIndex(({ name }) => name === currencyToField.value)];
 
     renderCurrencyFlag(currencyFrom.flagLink, currencyTo.flagLink);
 
