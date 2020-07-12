@@ -58,11 +58,9 @@ const writeResult = () => {
   const currencyFrom = currencies[fromCurrencyIndex];
   const currencyTo = currencies[toCurrencyIndex];
 
-  const amount = +amountField.value;
-
   renderCurrencyFlag(currencyFrom.flagLink, currencyTo.flagLink);
 
-  const result = calculateResult(amount, currencyFrom.rate, (1 / currencyTo.rate));
+  const result = calculateResult(+amountField.value, currencyFrom.rate, (1 / currencyTo.rate));
   const resultField = document.querySelector(".js-form__result");
   resultField.innerText = `${result.toFixed(2)} ${currencyTo.name} `;
 
